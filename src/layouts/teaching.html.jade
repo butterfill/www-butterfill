@@ -1,0 +1,46 @@
+---
+layout: 'default'
+---
+
+- var scripts = getBlock('scripts')
+
+h3
+  a(href="/") Home
+  | 
+  | >> 
+  a(href="/#teaching") Teaching
+  |  
+  | >>
+
+
+h1 #{document.title} (#{document.term} #{document.year})
+
+p by #{document.authors}
+
+- d = document
+
+  if document.abstract
+    .row
+      .span12
+        h3 Description
+        p
+          != document.abstract
+
+  .row    
+    .span12
+      h3 Course Outline
+      p Download: 
+        a(href='/pdf/teaching/#{d.basename}/course_outline.pdf',target='_blank') course outline [pdf]
+
+  each title,prefix in document.lectures
+    .row
+      .span12
+        - files = getFilesAtPath('img/teaching/'+document.basename+'/lecture'+prefix+'/',[{basename:1}]).toJSON()
+        a(href='/'+document.relativeBase+'/lecture'+prefix+'.html')
+          img(src=files[0].url,width="300",style="float:left;margin-right:3em;margin-bottom:3em;")
+        h3 Lecture #{prefix} : #{title}
+        p 
+          a(href='/pdf/teaching/#{d.basename}/lecture#{prefix}.handout.pdf',target='_blank') handout [pdf], 
+          a(href='/pdf/teaching/#{d.basename}/lecture#{prefix}.slides.pdf',target='_blank') slides [pdf]
+
+!= content

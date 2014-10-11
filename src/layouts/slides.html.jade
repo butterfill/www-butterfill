@@ -1,0 +1,35 @@
+---
+layout: 'default'
+---
+
+- var scripts = getBlock('scripts')
+
+h3
+  a(href="/") Home
+  | 
+  | >> Teaching >> 
+  //- fragile and stupid: assume the following will get us a link to the page for the lectures!
+  a(href="/teaching/"+document.base_dir+'.html') #{document.lecture_series_name}
+  |  
+  | >> #{document.basename}
+
+
+  .deck-container
+    each f in getFilesAtPath('img/teaching/'+document.base_dir+'/'+document.basename+'/',[{basename:1}]).toJSON()
+      section.slide
+        img(src=f.url)
+  
+    //-- deck.navigation snippet 
+    a(href="#",class="deck-prev-link",title="Previous") &#8592
+    a(href="#",class="deck-next-link",title="Next") &#8594
+  
+    //-- deck.status snippet 
+    p.deck-status
+      span.deck-status-current
+      | / 
+      span.deck-status-total
+    
+    //-- deck.automatic snippet
+    .deck-automatic-link(title="Play/Pause") Play/Pause
+
+!= content

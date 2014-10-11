@@ -1,0 +1,226 @@
+--- yaml
+layout: 'default'
+title: 'Philosophy in Cognitive and Developmental Psychology'
+---
+html
+  body(data-spy="scroll", data-target="#sidebar")
+
+    //- The page header (was in template to appear on all pages)
+    .row(style="border:1px;border-bottom-color:black;border-bottom-style:dashed;padding-bottom:1em;margin-bottom:2em")
+      .span12
+        div(style='float:right;padding-left:10px')
+          img(src='/img/stephen_butterfill.jpg', style='height:150px')
+        h1 Stephen  Butterfill
+        h2
+          a.glow-white(href='mailto:s.butterfill@warwick.ac.uk')
+            | s.butterfill@warwick.ac.uk
+        p I research and teach on joint action, mindreading and other philosophical issues in cognitive science.  (If you were after furniture or flooring, you want 
+          a(href="http://butterfills.com") my brother Matt
+          | .)
+
+    .row
+      //- the menu
+      #sidebar.span3.bs-docs-sidebar
+        ul.nav.nav-list.bs-docs-sidenav(data-spy="affix",data-offset-top="100",style="margin-top:0;")
+          li
+            a(href='#writing')
+              i.icon-chevron-right
+              | Writing
+          li
+            a(href='#talks')
+              i.icon-chevron-right
+              | Talks
+          li
+            a(href='#teaching')
+              i.icon-chevron-right
+              | Teaching
+          li
+            a(href='#about')
+              i.icon-chevron-right
+              | About
+          li
+            a(href='#contact')
+              i.icon-chevron-right
+              | Contact
+        //- keep menu in place
+        p &nbsp; 
+      
+      //- main content: writing, talks &c
+      .span9
+        #writing
+          .page-header(style="margin-top:0;")
+            h1 Writing
+          p Please 
+            a(href='mailto:s.butterfill@warwick.ac.uk')
+             | email me 
+            | for copies of papers. (Links to pdfs are below where I'm allowed to include them.)
+        
+          mixin display_publication(d)
+            //- necessary because d.url omits the file extension & so doesn't work on S3
+            a(href=get_url(d),style="font-weight:bold;")
+              | #{d.title} (#{d.year})
+            br
+            | --- by #{d.authors}#{d.journal ? ', ' : ''}
+            if d.journal
+              u #{d.journal}
+            if d.volume
+              | 
+              | #{d.volume}
+            if d.number
+              | (#{d.number})
+            if d.booktitle
+              | 
+              | in 
+              if d.editor 
+                | #{d.editor} (eds.), 
+              i #{d.booktitle}
+            if d.address
+              | , #{d.address}
+            if d.address && d.publisher
+              | : 
+            | #{d.publisher}
+            if d.pages
+              | , pp. #{d.pages}
+            
+            if d.isbn
+              | ; ISBN: #{d.isbn}
+            if d.issn
+              | ; ISSN: #{d.issn}
+ 
+            br
+
+            if d.pdf || d.doi || d.link
+              | --- links: 
+              if d.pdf
+                a(href='/pdf/#{d.basename}.pdf',target='_blank') [pdf] 
+              if d.doi
+                | external 
+                a(href='http://dx.doi.org/#{d.doi}',target='_blank') [doi: #{d.doi}] 
+              if d.link
+                a(href=d.link,target='_blank') [publisher's page]
+        
+          h3 Forthcoming
+          each d in getCollection("documents").findAll({isPublication:true, isForthcoming:true},[{year:-1,sort_order:1}]).toJSON()
+            p
+              mixin display_publication(d)
+
+          h3 Published
+  
+          each d in getCollection("documents").findAll({isPublication:true, isForthcoming:false},[{year:-1,sort_order:1}]).toJSON()
+            p
+              mixin display_publication(d)
+
+
+
+        mixin display_talk(d)
+          if d.abstract
+            //- necessary because d.url omits the file extension & so doesn't work on S3
+            a(href=get_url(d),style="font-weight:bold;")
+              | #{d.title}
+          else
+            strong #{d.title}
+          br
+          | --- 
+          if d.event
+            | at 
+            i #{d.event}
+            if d.address
+              | , 
+          | #{d.address}, #{moment(d.date).format('D')}#{d.date_end ? '-'+d.date_end : ''} #{moment(d.date).format('MMMM YYYY')}
+          if d.slides || d.handout
+            br
+            | --- 
+            if d.slides
+              a(href='/pdf/talks/#{d.basename}.slides.pdf',target='_blank') slides [pdf]
+              if d.handout
+                | , 
+            if d.handout
+              a(href='/pdf/talks/#{d.basename}.handout.pdf',target='_blank') handout [pdf]
+
+        #talks
+          .page-header
+            h1 Talks
+          h3 Future
+          - now = moment().format()
+          each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
+            - date = moment(d.date).format()
+            if date > now
+              p
+                mixin display_talk(d)
+          h3 Recent
+          each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
+            - date = moment(d.date).format()
+            if date <= now
+              p
+                mixin display_talk(d)
+
+
+        #teaching
+          .page-header
+            h1 Teaching
+          //-  a manual entry 
+          p
+            a(href='http://origins-of-mind.butterfill.com',style="font-weight:bold;")
+              | Origins of Mind (current) 
+            br
+            | --- Department of Philosophy, University of Warwick
+
+          each d in getCollection("documents").findAll({isCourse:true},[{date:-1}]).toJSON()
+            p
+              //- necessary because d.url omits the file extension & so doesn't work on S3
+              a(href=get_url(d),style="font-weight:bold;")
+                | #{d.title} (#{d.term} #{d.year})
+              br
+              | --- #{d.place}
+          //- also a manual entry for logic
+          p
+            a(href='http://logic-1.butterfill.com',style="font-weight:bold;")
+              | Logic 1 (current) 
+            br
+            | --- Department of Philosophy, University of Warwick
+
+
+
+
+        #about
+          .page-header
+            h1 About Me
+
+          h3 Research
+          p I research philosophical issues in cognitive and developmental psychology.
+          p Most of my current research is on two topics, joint action and mindreading.
+          p As well as writing alone on philosophical topics, I have some theoretical and experimental projects with scientific collaborators.
+
+          h3 Position
+          p I am currently Associate Professor in Philosophy at the University of Warwick.
+
+          h3 Qualifications
+          p I have a DPhil and BPhil in Philosophy and a BA in Mathematics and Philosophy, all from the University of Oxford.
+
+          h3 Personal
+          p I live in Southampton, UK with my wife 
+            a(href="southampton.ac.uk/ageing/about/staff/emsb.page",target="_blank") Elisabeth Schroeder-Butterfill
+            |  and four kids.  (I'm not related to a politician; I'm also neither Jeremy Butterfield nor David Buttelmann.)
+
+        
+        #contact
+          .page-header
+            h1 Contact
+          h3 Email
+          p
+            a(href='mailto:s.butterfill@warwick.ac.uk')
+             | s.butterfill@warwick.ac.uk
+          h3 Post
+          p Please contact me by email before posting anything to me.
+          
+          //- leave some space at the end
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;
+          p &nbsp;

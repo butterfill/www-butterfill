@@ -1,0 +1,63 @@
+---
+layout: 'default'
+---
+
+h3
+  a(href="/") Home
+  | 
+  | >> 
+  a(href="/#writing") Writing
+  |  
+  | >> 
+
+
+h1 #{document.title} (#{document.year})
+
+p by #{document.authors}
+
+- d = document
+p
+  if d.journal
+    u #{d.journal}
+  if d.volume
+    | 
+    | #{d.volume}
+  if d.number
+    | (#{d.number})
+  if d.booktitle
+    | 
+    | in 
+    if d.editor 
+      | #{d.editor} (eds.), 
+    i #{d.booktitle}
+  if d.address
+    | , #{d.address}
+  if d.address && d.publisher
+    | : 
+  | #{d.publisher}
+  if d.pages
+    | , pp. #{d.pages}
+  
+  if d.isbn
+    | ; ISBN: #{d.isbn}
+  if d.issn
+    | ; ISSN: #{d.issn}
+  
+  br
+  
+  if d.pdf || d.doi || d.link
+    | --- download & link: 
+    if d.pdf
+      a(href='/pdf/#{d.basename}.pdf',target='_blank') [pdf] 
+    if d.doi
+      a(href='http://dx.doi.org/#{d.doi}',target='_blank') [doi:#{d.doi}] 
+    if d.link
+      a(href=d.link,target='_blank') [publisher's page]
+
+
+if document.abstract
+  h3 Abstract 
+  p
+    != document.abstract
+
+!= content

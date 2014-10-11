@@ -1,0 +1,59 @@
+---
+layout: 'default'
+---
+
+- var scripts = getBlock('scripts')
+
+h3
+  a(href="/") Home
+  | 
+  | >> 
+  a(href="/#talks") Talks
+  |  
+  | >>
+
+
+h1 #{document.title}
+
+p by #{document.authors}
+
+- d = document
+
+
+.row
+  .span4
+    if document.handout
+      h3 Handout and Slides
+      p Download: 
+        a(href='/pdf/talks/#{document.basename}.handout.pdf',target='_blank') handout [pdf] 
+
+        if document.slides
+          |  and 
+          a(href='/pdf/talks/#{document.basename}.slides.pdf',target='_blank') slides [pdf]
+
+    if document.abstract
+        h3 Abstract 
+        p
+          != document.abstract
+  
+  if document.slides
+    .span8
+      .deck-container
+        each f in getFilesAtPath('img/talks/'+document.basename+'/',[{basename:1}]).toJSON()
+          section.slide
+            img(src=f.url)
+      
+        //-- deck.navigation snippet 
+        a(href="#",class="deck-prev-link",title="Previous") &#8592
+        a(href="#",class="deck-next-link",title="Next") &#8594
+      
+        //-- deck.status snippet 
+        p.deck-status
+          span.deck-status-current
+          | / 
+          span.deck-status-total
+        
+        //-- deck.automatic snippet
+        .deck-automatic-link(title="Play/Pause") Play/Pause
+
+!= content
