@@ -134,6 +134,10 @@ html
               a(href='/pdf/talks/#{d.basename}.slides.pdf',target='_blank') slides [pdf]
               if d.handout
                 | , 
+            if d.deckslides
+              a(href=site.url+'/talk-slides/#{d.basename}/index.html',target='_blank') slides [html]
+              if d.handout
+                | , 
             if d.handout
               a(href='/pdf/talks/#{d.basename}.handout.pdf',target='_blank') handout [pdf]
 
@@ -146,13 +150,13 @@ html
             - date = moment(d.date).format()
             if date > now
               p
-                mixin display_talk(d)
+                +display_talk(d)
           h3 Recent
           each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
             - date = moment(d.date).format()
             if date <= now
               p
-                mixin display_talk(d)
+                +display_talk(d)
 
 
         #teaching
@@ -164,6 +168,10 @@ html
               | Origins of Mind (current) 
             br
             | --- Department of Philosophy, University of Warwick
+            br
+            | --- 
+            a(href='http://origins-of-mind-milan.butterfill.com',style="font-weight:bold;") Milan Version
+            |  Department of Philosophy, Università degli Studi di Milano, Italy, September 2014
 
           each d in getCollection("documents").findAll({isCourse:true},[{date:-1}]).toJSON()
             p

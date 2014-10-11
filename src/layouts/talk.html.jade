@@ -30,6 +30,9 @@ p by #{document.authors}
         if document.slides
           |  and 
           a(href='/pdf/talks/#{document.basename}.slides.pdf',target='_blank') slides [pdf]
+      if document.deckslides
+        p Fullscreen: 
+          a(href=site.url+'/talk-slides/'+document.basename+'/index.html') slides [html]
 
     if document.abstract
         h3 Abstract 
@@ -55,5 +58,10 @@ p by #{document.authors}
         
         //-- deck.automatic snippet
         .deck-automatic-link(title="Play/Pause") Play/Pause
+
+  if document.deckslides
+    .span8
+      iframe(src=site.url+'/talk-slides/'+document.basename+'/index.html', width="800", height="600")
+
 
 != content
