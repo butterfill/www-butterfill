@@ -1,4 +1,4 @@
---- yaml
+---
 layout: 'default'
 title: 'Philosophy in Cognitive and Developmental Psychology'
 ---
@@ -55,6 +55,7 @@ html
              | email me 
             | for copies of papers. (Links to pdfs are below where I'm allowed to include them.)
         
+          //- ! copied in publication.html.jade
           mixin display_publication(d)
             //- necessary because d.url omits the file extension & so doesn't work on S3
             a(href=get_url(d),style="font-weight:bold;")
@@ -63,17 +64,21 @@ html
             | --- by #{d.authors}#{d.journal ? ', ' : ''}
             if d.journal
               u #{d.journal}
-            if d.volume
+            if d.journal && d.volume
               | 
               | #{d.volume}
-            if d.number
+            if d.journal && d.number
               | (#{d.number})
             if d.booktitle
               | 
               | in 
               if d.editor 
                 | #{d.editor} (eds.), 
-              i #{d.booktitle}
+              i #{d.booktitle} 
+              if !d.journal && d.volume
+                |  Volume #{d.volume}
+              if !d.journal && d.number
+                |  , Number #{d.number}
             if d.address
               | , #{d.address}
             if d.address && d.publisher

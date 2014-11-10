@@ -15,21 +15,27 @@ h1 #{document.title} (#{document.year})
 
 p by #{document.authors}
 
-- d = document
-p
+//- ! mostly copied from index.html.jade (delete reference to paper and authors, add a paragrap)
+mixin display_publication(d)
+  //- necessary because d.url omits the file extension & so doesn't work on S3
+  | ---
   if d.journal
     u #{d.journal}
-  if d.volume
+  if d.journal && d.volume
     | 
     | #{d.volume}
-  if d.number
+  if d.journal && d.number
     | (#{d.number})
   if d.booktitle
     | 
     | in 
     if d.editor 
       | #{d.editor} (eds.), 
-    i #{d.booktitle}
+    i #{d.booktitle} 
+    if !d.journal && d.volume
+      |  Volume #{d.volume}
+    if !d.journal && d.number
+      |  , Number #{d.number}
   if d.address
     | , #{d.address}
   if d.address && d.publisher
@@ -37,22 +43,27 @@ p
   | #{d.publisher}
   if d.pages
     | , pp. #{d.pages}
-  
+
   if d.isbn
     | ; ISBN: #{d.isbn}
   if d.issn
     | ; ISSN: #{d.issn}
-  
+
   br
-  
+
   if d.pdf || d.doi || d.link
-    | --- download & link: 
+    | --- links: 
     if d.pdf
       a(href='/pdf/#{d.basename}.pdf',target='_blank') [pdf] 
     if d.doi
-      a(href='http://dx.doi.org/#{d.doi}',target='_blank') [doi:#{d.doi}] 
+      | external 
+      a(href='http://dx.doi.org/#{d.doi}',target='_blank') [doi: #{d.doi}] 
     if d.link
       a(href=d.link,target='_blank') [publisher's page]
+
+- d = document
+p
+  +display_publication(d)
 
 
 if document.abstract
