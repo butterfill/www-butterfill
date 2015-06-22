@@ -132,7 +132,7 @@ html
             if d.address
               | , 
           | #{d.address}, #{moment(d.date).format('D')}#{d.date_end ? '-'+d.date_end : ''} #{moment(d.date).format('MMMM YYYY')}
-          if d.slides || d.handout
+          if d.slides || d.handout || d.deckslides
             br
             | --- 
             if d.slides
