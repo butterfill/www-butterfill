@@ -149,14 +149,17 @@ html
         #talks
           .page-header
             h1 Talks
-          h3 Future
           - now = moment().format()
-          each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
-            - date = moment(d.date).format()
-            if date > now
-              p
-                +display_talk(d)
-          h3 Recent
+          - var isFutureTalks = getCollection("documents").findAll({isTalk:true, date:{$gt:now}},[{date:-1}]).toJSON().length > 0
+          if isFutureTalks
+            h3 Future
+            each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
+              - date = moment(d.date).format()
+              if date > now
+                p
+                  +display_talk(d)
+          if isFutureTalks
+            h3 Recent
           each d in getCollection("documents").findAll({isTalk:true},[{date:-1}]).toJSON()
             - date = moment(d.date).format()
             if date <= now
@@ -169,14 +172,28 @@ html
             h1 Teaching
           //-  a manual entry 
           p
-            a(href='http://origins-of-mind.butterfill.com',style="font-weight:bold;")
-              | Origins of Mind (current) 
+            a(href='http://social-cognition.butterfill.com',style="font-weight:bold;")
+              | Social Cognition (2015-6) 
             br
             | --- Department of Philosophy, University of Warwick
+          p
+            a(href='http://joint-action.butterfill.com',style="font-weight:bold;")
+              | Joint Action (2015-6) 
+            br
+            | --- Department of Philosophy, University of Warwick
+          p
+            a(href='http://origins-of-mind.butterfill.com',style="font-weight:bold;")
+              | Origins of Mind 
+            br
+            | --- Department of Philosophy, University of Warwick (2013-5) 
             br
             | --- 
             a(href='http://origins-of-mind-milan.butterfill.com',style="font-weight:bold;") Milan Version
             |  Department of Philosophy, Università degli Studi di Milano, Italy, September 2014
+            br
+            | --- 
+            a(href='http://developing-mind-tuebingen.butterfill.com',style="font-weight:bold;") Tuebingen Version
+            |  University of Tuebingen, Germany, December 2015
 
           each d in getCollection("documents").findAll({isCourse:true},[{date:-1}]).toJSON()
             p
