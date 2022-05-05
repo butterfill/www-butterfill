@@ -10,29 +10,36 @@ html
       .span12
         div(style='float:right;padding-left:10px')
           img(src='/img/stephen_butterfill.jpg', style='height:150px')
-        h1 Stephen  Butterfill
-        h2
-          a.glow-white(href='mailto:s.butterfill@warwick.ac.uk')
-            | s.butterfill@warwick.ac.uk
-        p I research and teach on joint action, mindreading and other philosophical issues in cognitive science.  (If you were after furniture or flooring, you want 
+        h1 Stephen  Butterfill 
+          a.glow-white(href='mailto:s.butterfill@warwick.ac.uk') &lt;s.butterfill@warwick.ac.uk&gt;
+
+        //- h2
+        //-   a.glow-white(href='mailto:s.butterfill@warwick.ac.uk')
+        //-     | s.butterfill@warwick.ac.uk
+        p I research and teach on joint action, mindreading and other philosophical issues in cognitive science.  
+          br 
+          | I also had a lot of fun in lockdown 
+          a(href='#teaching') recording lectures on youtube
+          br 
+          | (If you were after furniture or flooring, you want 
           a(href="http://butterfills.com") my brother Matt
           | .)
 
-    .row
-      .span12(style='border: 3px red solid; padding: 2em; margin: 2em; background: #FFFF0F')
-        h1 FRAUD ALERT : Stephen Butterfill is not involved in arranging finance for the Society of St James
-        p Someone is attempting to impersonate me, using what appear to be convicing copies of my driving license and utility bills.
-        p I am a director of the Society of St James.
-        p 
-          span I will never attempt to contact your business directly, neither to arrange finance nor to lease equipment. 
-          span This would be handled by the executive team.
-        p If someone contacts you using my name, please inform the police.
+    //- .row
+    //-   .span12(style='border: 3px red solid; padding: 2em; margin: 2em; background: #FFFF0F')
+    //-     h1 FRAUD ALERT : Stephen Butterfill is not involved in arranging finance for the Society of St James
+    //-     p Someone is attempting to impersonate me, using what appear to be convicing copies of my driving license and utility bills.
+    //-     p I am a director of the Society of St James.
+    //-     p 
+    //-       span I will never attempt to contact your business directly, neither to arrange finance nor to lease equipment. 
+    //-       span This would be handled by the executive team.
+    //-     p If someone contacts you using my name, please inform the police.
 
 
     .row
       //- the menu
       #sidebar.span3.bs-docs-sidebar
-        ul.nav.nav-list.bs-docs-sidenav(data-spy="affix",data-offset-top="100",style="margin-top:0;")
+        ul.nav.nav-list.bs-docs-sidenav(data-spy="affix",data-offset-top="-20",style="margin-top:130px;")
           li
             a(href='#writing')
               i.icon-chevron-right
@@ -46,13 +53,13 @@ html
               i.icon-chevron-right
               | Teaching
           li
+            a(href='#student-evaluations')
+              i.icon-chevron-right
+              | Student Evaluations
+          li
             a(href='#about')
               i.icon-chevron-right
               | About
-          li
-            a(href='#contact')
-              i.icon-chevron-right
-              | Contact
         //- keep menu in place
         p &nbsp; 
       
@@ -61,10 +68,10 @@ html
         #writing
           .page-header(style="margin-top:0;")
             h1 Writing
-          p Please 
-            a(href='mailto:s.butterfill@warwick.ac.uk')
-             | email me 
-            | for copies of papers. (Links to pdfs are below where I'm allowed to include them.)
+          //- p Please 
+          //-   a(href='mailto:s.butterfill@warwick.ac.uk')
+          //-    | email me 
+          //-   | for copies of papers. (Links to pdfs are below where I'm allowed to include them.)
         
           //- ! copied in publication.html.jade
           mixin display_publication(d)
@@ -115,6 +122,19 @@ html
               if d.link
                 a(href=d.link,target='_blank') [publisher's page]
         
+          h3 Book
+
+          p
+            a(href='/writing/developing_mind.html',style="font-weight:bold;") The Developing Mind: A Philosophical Introduction (2020)
+            br
+            | --- London: Routledge 
+            a(href='https://www.routledge.com/The-Developing-Mind-A-Philosophical-Introduction/Butterfill/p/book/9780415566230',target='_blank') [publisher's page]
+            br
+            | --- links: 
+            a(href='/pdf/developing_mind_contents.pdf') contents [pdf]
+            | ; 
+            a(href='/pdf/developing_mind_introduction.pdf') introduction [pdf]
+
           h3 Forthcoming
           each d in getCollection("documents").findAll({isPublication:true, isForthcoming:true},[{year:-1,sort_order:1}]).toJSON()
             p
@@ -183,42 +203,270 @@ html
             h1 Teaching
           //-  a manual entry 
           p
-            a(href='http://social-cognition.butterfill.com',style="font-weight:bold;")
-              | Social Cognition (2015-6) 
+            a(href='https://moral-psychology-docs.butterfill.com/')
+              span(style="font-weight:bold;") Moral Psychology: the Science of Good and Evil? 
             br
-            | --- Department of Philosophy, University of Warwick
+            |  --- 
+            a(href='https://moral-psychology-docs.butterfill.com/') youtube lectures, slides and handouts 
+            br
+            |  --- 
+            a(href='https://moral-psychology.butterfill.com/') week-by-week guide with assessment details (2020-21)
+
           p
-            a(href='http://joint-action.butterfill.com',style="font-weight:bold;")
-              | Joint Action (2015-6) 
+            a(href='https://philosophical-behavioral-science-docs.butterfill.com/')
+              span(style="font-weight:bold;") Philosophical Issues in Behavioural Science: from Individual to Collaborative Action 
             br
-            | --- Department of Philosophy, University of Warwick
+            |  --- 
+            a(href='https://philosophical-behavioral-science-docs.butterfill.com/') youtube lectures, slides and handouts
+            br
+            |  --- 
+            a(href='https://philosophical-issues-in-behavioural-science.butterfill.com/') week-by-week guide with assessment details (2021-22)
+
+          p 
+            a(href='http://two-systems.sinigaglia.and.butterfill.com/') 
+              span(style="font-weight:bold;") Are Two Systems Better Than One? (2021-2)
+            br
+            |  --- with Corrado Sinigaglia at the University of Milan, Italy
+
+          p
+            a(href='https://mind-and-reality.butterfill.com/', style="font-weight:bold;") Mind and Reality (2020-21)
+            br
+            | --- includes youtube lectures, slides and handouts
+
+
           p
             a(href='http://origins-of-mind.butterfill.com',style="font-weight:bold;")
               | Origins of Mind 
             br
-            | --- Department of Philosophy, University of Warwick (2013-5) 
+            | --- Department of Philosophy, University of Warwick (2019-20) 
             br
             | --- 
-            a(href='http://origins-of-mind-milan.butterfill.com',style="font-weight:bold;") Milan Version
-            |  Department of Philosophy, Università degli Studi di Milano, Italy, September 2014
+            a(href='https://origins-of-mind-umea.butterfill.com/',style="font-weight:bold;") Umeå Version
+            |  University of Umeå, Sweden, November 2018
             br
             | --- 
             a(href='http://developing-mind-tuebingen.butterfill.com',style="font-weight:bold;") Tuebingen Version
             |  University of Tuebingen, Germany, December 2015
+            br
+            | --- 
+            a(href='http://origins-of-mind-milan.butterfill.com',style="font-weight:bold;") Milan Version
+            |  Department of Philosophy, Università degli Studi di Milano, Italy, September 2014
+
+
+          p
+            a(href='https://central-themes.butterfill.com/', style='font-weight:bold;') Central Themes in Philosophy (2019-20)
+          p
+            a(href='https://words-and-things.butterfill.com/', style='font-weight:bold;') Words and Things (2019-20)
+          p
+            a(href='https://descartes.butterfill.com/', style='font-weight:bold;') Descartes (2018-19)
+          
+          p
+            a(href='http://social-cognition.butterfill.com',style="font-weight:bold;")
+              | Social Cognition (2017-8) 
+          p
+            a(href='http://joint-action.butterfill.com',style="font-weight:bold;")
+              | Joint Action 
+            br
+            | --- Department of Philosophy, University of Warwick (2017-8) 
+            br
+            | --- 
+            a(href='https://joint-action-bochum.butterfill.com/',style="font-weight:bold;") Bochum Version
+            |  Ruhr-Universität Bochum, Germany, April 2018
+              
+              
+
+
 
           each d in getCollection("documents").findAll({isCourse:true},[{date:-1}]).toJSON()
             p
               //- necessary because d.url omits the file extension & so doesn't work on S3
               a(href=get_url(d),style="font-weight:bold;")
-                | #{d.title} (#{d.term} #{d.year})
+                | #{d.title} (#{d.year})
               br
               | --- #{d.place}
           //- also a manual entry for logic
           p
             a(href='http://logic-1.butterfill.com',style="font-weight:bold;")
-              | Logic 1 (current) 
+              | Logic 1 (2015-6)
             br
             | --- Department of Philosophy, University of Warwick
+
+        #student-evaluations
+          .page-header
+            h1 Student Evaluations
+          
+          //- --- *DO NOT EDIT* ---
+          //- this section is auto-generated from a script in `cv etc/teaching-feedback`
+
+          h5 Engaging lecture delivery and materials
+
+          p(style='margin-left:1em;') ‘Lecturer was very engaging and delivered content in a precise, clear way.’ (
+            span(style='font-style:italic;') Words and Things
+            | , 2018-9)
+
+          p(style='margin-left:1em;') ‘Dr Butterfill’s setup and body language as well as his attitude in both pre-recorded and live lectures makes the experience enjoyable and the material easier to absorb’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Lectures are engaging, watchable but also thought-provoking.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Steve was the single greatest thing about this module. Best lecturer I’ve had.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘He tries to make the lectures super engaging, e.g. fun video examples and backgrounds, which helps!’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘The slides were amazing.’ (
+            span(style='font-style:italic;') Central Themes in Philosophy
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Amazing lecturer 10/10 I would Butterfill again.’ (
+            span(style='font-style:italic;') Central Themes in Philosophy
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Absolutely love the enthusiastic manner with which Stephen engages the content’ (
+            span(style='font-style:italic;') Central Themes in Philosophy
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Steve is very passionate about what he teaches and it shows.’ (
+            span(style='font-style:italic;') Descartes
+            | , 2018-19)
+
+          p(style='margin-left:1em;') ‘Great lecturer, clearly passionate about what he teaches.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘The form of teaching is unique and brilliant.’ (
+            span(style='font-style:italic;') Philosophical Issues in Behavioural Science: from Individual to Collaborative Action
+            | , 2021-22)
+
+          p(style='margin-left:1em;') ‘Fantastic lectures, Stephen Butterfill is a truly remarkable lecturer!’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
+
+
+          h5 Care for students and availability to them
+
+          p(style='margin-left:1em;') ‘Stephen is very approachable and always happy to meet with you to discuss your development throughout the course and offer good help/advice whenever you need it.’ (
+            span(style='font-style:italic;') Words and Things
+            | , 2018-9)
+
+          p(style='margin-left:1em;') ‘Stephen appears to have a genuine interest and care in the module which is obvious in all aspects in this course.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘He’s super friendly so easy to approach with questions/concerns!’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Amazing Butterfill’ (
+            span(style='font-style:italic;') Central Themes in Philosophy
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘It’s hard to name one thing, because everything about Steve’s teaching is just amazing. If I was pressed on it, I’d probably say the combination (that’s one right?) of his intellectually challenging style and his extreme patience, interest and generosity in lectures, seminars and not least office hours.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Love how happy Steve is to respond to what we want to lean about and really appreciate that this is a new and exciting field of research.’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
+
+          p(style='margin-left:1em;') ‘Throughout my three years at this University, I have never had a teacher so committed to his students and so keen in helping each one of us to succeed.’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
+
+
+          h5 Online and blended teaching
+
+          p(style='margin-left:1em;') ‘The pre-recorded lectures are always fun to watch.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘As engaged as you could be with online learning, it’s as good as it gets I think’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Online/blended learning for the most part has worked great for this module.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Steves approach to online has been fantastic and the quality of his videos has been astronomically better than every other lecturer (possibly in the whole uni).’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+          p(style='margin-left:1em;') ‘Definitely one of the best for making the lectures easier and more agreeable to watch.’ (
+            span(style='font-style:italic;') Mind and Reality
+            | , 2020-21)
+
+
+          h5 Enthusiastic small-group teaching
+
+          p(style='margin-left:1em;') ‘He treats his students as equals and works through the arguments with us, rather than just telling us about them.’ (
+            span(style='font-style:italic;') Central Themes in Philosophy
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Very good at maintaining discussions and getting everyone involved in learning. Does this well by making the effort to learn everyones names which is really nice and makes you engage with him more. Fantastic tutor.’ (
+            span(style='font-style:italic;') Descartes
+            | , 2018-19)
+
+          p(style='margin-left:1em;') ‘I engaged a lot; it was hard not to with Steve’s contagious enthusiasm.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Steve is a passionate seminar tutor who really contributes to my understanding of the topic and the discussions involved.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Seminars are A* tier.’ (
+            span(style='font-style:italic;') Philosophical Issues in Behavioural Science: from Individual to Collaborative Action
+            | , 2021-22)
+
+          p(style='margin-left:1em;') ‘Really appreciated the opportunity to get essay plans peer reviewed in seminars.’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
+
+
+          h5 Challenging assessments on unique content supported by useful feedback
+
+          p(style='margin-left:1em;') ‘All the topics delivered throughout this module engaged me in every way as the topics are thought provoking and extremely fascinating. The readings are very engaging too and easy to find.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Dr Butterfill’s weekly formative assignments. They may not seem like it, but they really help and make bigger assignments less daunting as he gives feedback and chance to peer review others’ essays, which gives guidance and support in what’s expected of you.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Would definitely recommend this module to students from all kinds of departments.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘Steve’s lectures are just unparalleled in any respect.’ (
+            span(style='font-style:italic;') Moral Psychology
+            | , 2019-20)
+
+          p(style='margin-left:1em;') ‘it is hard work - if you’re doing a Stephen Butterfill module, you know your workload (and consequently, working hours) are going to increase significantly.’ (
+            span(style='font-style:italic;') Philosophical Issues in Behavioural Science: from Individual to Collaborative Action
+            | , 2021-22)
+
+          p(style='margin-left:1em;') ‘The feedback was always constructive, fair, and consistent.’ (
+            span(style='font-style:italic;') Philosophical Issues in Behavioural Science: from Individual to Collaborative Action
+            | , 2021-22)
+
+          p(style='margin-left:1em;') ‘It is HARD WORK - the workload is heavy, the contents are difficult, and the seminars are stressful (you’ll be put on the spotlight, a lot). Still, it is one of the best modules the department has to offer’ (
+            span(style='font-style:italic;') Philosophical Issues in Behavioural Science: from Individual to Collaborative Action
+            | , 2021-22)
+
+          p(style='margin-left:1em;') ‘Steve’s modules are my favourite modules I’ve studied at undergrad. So engaging.’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
+
+          p(style='margin-left:1em;') ‘unorthodox ... quite challenging’ (
+            span(style='font-style:italic;') Social Cognition
+            | , 2017-8)
 
 
 
@@ -233,27 +481,17 @@ html
           p As well as writing alone on philosophical topics, I have some theoretical and experimental projects with scientific collaborators.
 
           h3 Position
-          p I am currently Associate Professor in Philosophy at the University of Warwick.
+          p I am currently Professor of Philosophy at the University of Warwick.
 
           h3 Qualifications
           p I have a DPhil and BPhil in Philosophy and a BA in Mathematics and Philosophy, all from the University of Oxford.
 
           h3 Personal
           p I live in Southampton, UK with my wife 
-            a(href="southampton.ac.uk/ageing/about/staff/emsb.page",target="_blank") Elisabeth Schroeder-Butterfill
+            a(href="https://southampton.ac.uk/ageing/about/staff/emsb.page",target="_blank") Elisabeth Schroeder-Butterfill
             |  and four kids.  (I'm not related to a politician; I'm also neither Jeremy Butterfield nor David Buttelmann.)
 
         
-        #contact
-          .page-header
-            h1 Contact
-          h3 Email
-          p
-            a(href='mailto:s.butterfill@warwick.ac.uk')
-             | s.butterfill@warwick.ac.uk
-          h3 Post
-          p Please contact me by email before posting anything to me.
-          
           //- leave some space at the end
           p &nbsp;
           p &nbsp;
