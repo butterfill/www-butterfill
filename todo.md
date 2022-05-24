@@ -1,8 +1,8 @@
 # essential before update
 
-1. [done] update teaching with new lectures
-1. update publications
 1. update talks
+1. [done] update teaching with new lectures
+1. [done] update publications
 1. [done] add teaching feedback 
 1. [done] remove contact section
 1. [done] remove fraud warning
