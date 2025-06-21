@@ -2,6 +2,10 @@
 Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.
 
 
+## hashme
+
+The new `/hashme-q3` comes from a separate project, https://github.com/butterfill/qhashme3.git
+
 ## Getting Started
 
 1. [Install DocPad](https://github.com/bevry/docpad)
