@@ -1,0 +1,1 @@
+The command menu does not work properly. Suppose I type something, delete it and then type 'taking apart'. I should see a link to `writing/taking_aparthtml/`. But this entry is entirely missing; instead I see many other entries. If I close and re-open the command pallet, the correct entry is the sole candidate in the command pallet.

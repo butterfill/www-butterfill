@@ -1,0 +1,1 @@
+In the command pallet, it must be clear whether the items listed are publications, talks or lecture series.
