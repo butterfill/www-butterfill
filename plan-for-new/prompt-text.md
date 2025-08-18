@@ -1,9 +1,6 @@
 We are working on migrating the old codebase in www-butterfill-old/ to the new version in 
 www-butterfill-new/ . There are detailed requirements and instructions in plan-for-new/ . 
 
-We have 
-completed phase 2 so far and started phase 3. Task 3.2 has been completed. Another dev has worked on Task 3.3 but done an extremely poor job. Your current task is to re-do Task 3.3 properly. It's not just that the styling fails in every respect—colour, readability, attractiveness, ...; there is also no visible dark mode option.
-
 The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here.)
 
 
@@ -33,3 +30,28 @@ We are working on the article pages which display full text. The single example 
 
 I will `npm run dev` so please do not do that. Just let me know when it's time to `npm run dev`.
 
+
+---
+
+We are working on an astro+svelte static site using tailwind v3. This is mostly working but we are adding features.
+
+The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here; just `curl` if you need to check anything.)
+
+We are working on the article, teaching and talks pages. 
+
+I want to add a feature: in development mode (`npm run dev`) only, there should be an `open source` button and command menu item. The button should appear left of the `cite` button. Clicking the button should open the page in vs code on a mac where the path to the root of the astro project is `~/Documents/programming/git/www-butterfill/www-butterfill-new`. 
+
+
+DO NOT WRITE ANY CODE YET. Present your plan, ask any questions you need answers to, and wait for my confirmation. I am interested in learning how to add the feature myself.
+
+---
+
+We are working on an astro+svelte static site using tailwind v3. This is mostly working but we are adding features.
+
+The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here; just `curl` if you need to check anything.)
+
+The index page contains featured writing only. We would like to add a page, `/writing/`, which lists all writing in exactly the same style as the index page. There should be a link from the index page to the 'Writing' page.
+
+DO NOT WRITE ANY CODE YET. Present your plan, ask any questions you need answers to, and wait for my confirmation. 
+
+---
