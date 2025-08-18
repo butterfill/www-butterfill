@@ -13,11 +13,11 @@ We are working on an astro+svelte static site using tailwind v3. This is mostly 
 
 The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here; just `curl` if you need to check anything.)
 
-We are working on the article pages which display full text. The single example is `http://localhost:4321/writing/butterfill2025_three/` The two svelte components you are concerned with are FontSettings and FootnoteManager. There are some notes on this in `docs-developers/article-fulltext.md` which you should read carefully and update as you make changes. It is very easy to introduce regressions to the positioning of footnotes: please be extremely cautious.
+We are working on the article pages which display full text. The single example is `http://localhost:4321/writing/butterfill2025_three/`.  The svelte component you are concerned with is FontSettings 
 
-We have a problems:
+We have a problem:
 
-1. When footnote texts potentially overlap because the footnote marks are close together (e.g. footnotes 1-3 in this document), the vertical space between the footnotes is too large. I asked another dev to solve this but they created overlapping footnote texts! Please think carefully about how to get the vertical spacing between potentially overlapping footnotes identical to the spacing between two paragraphs in the main text.
+1. When the font size changes, the width of the main body of the fulltext does not increase or decrease. This is wrong.  We should aim to make the width change so that as close as possible to 80 characters per line are displayed.
 
 DO NOT WRITE ANY CODE YET. Present your plan, ask any questions you need answers to, and wait for my confirmation. I am interested in learning how to fix the problem myself.
 
@@ -27,6 +27,9 @@ There is a document about the command menu in `docs-developers/command-menu.md`.
 
 ---
 
+We are working on the article pages which display full text. The single example is `http://localhost:4321/writing/butterfill2025_three/` The two svelte components you are concerned with are FontSettings and FootnoteManager. There are some notes on this in `docs-developers/article-fulltext.md` which you should read carefully and update as you make changes. It is very easy to introduce regressions to the positioning of footnotes: please be extremely cautious.
+
+---
 
 I will `npm run dev` so please do not do that. Just let me know when it's time to `npm run dev`.
 
