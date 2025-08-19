@@ -9,6 +9,9 @@ Add links to fulltext md files to `LLM.txt`
 - [x] pdfs
 - [x] bibtex
 - [ ] github repo per article and links to it
+- [ ] add reference section to md (pandoc on HTML seems to remove it)
+- [ ] remove double brackets referencing snafu in HTML?
+- [ ] script to build all HTML?
 
 ## Talks
 
@@ -38,6 +41,6 @@ Add links to fulltext md files to `LLM.txt`
 
 - [ ] fix header links (do I want pages for articles, talks &c or would that replicate? Should I put just a few on the front page---maybe selected writing, talks?)
 - [ ] Photo
-- [ ] Email address
+- [x] Email address
 - [ ] sitemap.xml with lastmod accurate in ISO‑8601 
 - [ ] git hub repo for astro+svelte source (with brief guide to re-using for your own site)

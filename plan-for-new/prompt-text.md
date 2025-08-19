@@ -10,6 +10,9 @@ We are working on an astro+svelte static site using tailwind v3. This is mostly 
 
 The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here; just `curl` if you need to check anything.)
 
+The header has 'Butterfill' top left, which is the link to get to the home page. Please add an email icon to the right of 'Butterfill'. Clicking it should pop up a modal. The modal displays my email address, 's.butterfill@warwick.ac.uk' with an icon to copy the address and an icon to launch the user’s email app (mailto: link)
+
+
 We are working on the article pages which display full text. The single example is `http://localhost:4321/writing/butterfill2025_three/`.  The svelte component you are concerned with is FontSettings 
 
 We have a problem:
