@@ -1,5 +1,3 @@
-slides on the talks pages are not working any more!!
-
 ---
 
 On the list of writing on the index page, /, and on the page /writing/ we have 'cite' and 'pdf' buttons for articles. Please add a 'HTML' button between these two. The button should have the same style as the other two. Clicking it should lead to the page for the article (same page as you get to by clicking on the box). 
