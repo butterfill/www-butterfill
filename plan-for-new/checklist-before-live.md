@@ -8,10 +8,10 @@ Add links to fulltext md files to `LLM.txt`
 - [ ] full text
 - [x] pdfs
 - [x] bibtex
-- [ ] github repo per article and links to it
 - [ ] add reference section to md (pandoc on HTML seems to remove it)
 - [ ] remove double brackets referencing snafu in HTML?
 - [ ] script to build all HTML?
+- [ ] github repo per article and links to it
 
 ## Talks
 
@@ -19,13 +19,15 @@ Add links to fulltext md files to `LLM.txt`
 
 ## Teaching
 
-- [ ] add all entries
-- [ ] replicate teaching content from old site (this is not in source, you might have to scrape from butterfill.com (!))
+- [x] add all entries
+- [ ] move or replicate teaching content from old site (this is not in source, you might have to scrape from butterfill.com (!)). This is just for `https://www.butterfill.com/teaching/joint_action_and_the_emergence.html` and `https://www.butterfill.com/teaching/mindreading_and_joint_action.html`
 
 
 ## LLMs
 
-- [ ] Add JSON‑LD to every item page:
+- [ ] fix llms.txt so that it has the correct content and links.
+
+- [x] Add JSON‑LD to every item page:
  
       Publications: ScholarlyArticle (or Article) with name, author, datePublished, isPartOf (journal/proceedings), identifier/DOI, url, sameAs, abstract, keywords, citation/reference, and license if applicable.
  
@@ -35,7 +37,7 @@ Add links to fulltext md files to `LLM.txt`
 
 - [ ] robots.txt
 
-- [ ] enable zotero extension with metadata (see brave, https://www.perplexity.ai/search/i-am-making-a-static-site-usin-cqx6xCfMQLCfjvtXVG0apA)
+- [x] enable zotero extension with metadata (see brave, https://www.perplexity.ai/search/i-am-making-a-static-site-usin-cqx6xCfMQLCfjvtXVG0apA)
 
 ## Misc
 

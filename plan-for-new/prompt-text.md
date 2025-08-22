@@ -1,3 +1,15 @@
+slides on the talks pages are not working any more!!
+
+---
+
+On the list of writing on the index page, /, and on the page /writing/ we have 'cite' and 'pdf' buttons for articles. Please add a 'HTML' button between these two. The button should have the same style as the other two. Clicking it should lead to the page for the article (same page as you get to by clicking on the box). 
+
+I know this seems redundant. It’s just to avoid people thinking that they only have the PDF option.
+
+
+---
+
+
 We are working on migrating the old codebase in www-butterfill-old/ to the new version in 
 www-butterfill-new/ . There are detailed requirements and instructions in plan-for-new/ . 
 
@@ -10,7 +22,8 @@ We are working on an astro+svelte static site using tailwind v3. This is mostly 
 
 The site is available at `http://localhost:4321/` (do not `npm run dev`, as your updates will be reflected here; just `curl` if you need to check anything.)
 
-The header has 'Butterfill' top left, which is the link to get to the home page. Please add an email icon to the right of 'Butterfill'. Clicking it should pop up a modal. The modal displays my email address, 's.butterfill@warwick.ac.uk' with an icon to copy the address and an icon to launch the user’s email app (mailto: link)
+The 
+
 
 
 We are working on the article pages which display full text. The single example is `http://localhost:4321/writing/butterfill2025_three/`.  The svelte component you are concerned with is FontSettings 
